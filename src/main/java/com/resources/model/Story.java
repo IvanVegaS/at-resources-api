@@ -1,44 +1,35 @@
 package com.resources.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDate;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Document(collection = "stories") 
+@Getter
+@Setter
+@Document(collection = "stories")
 @Data
 public class Story {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
-	private Integer id;
-	
-	private Integer sprint_id;
-	
-	private Integer user_id;
-	
+	private String id;
+	private String sprint_id;
+	private String user_id;
 	private Integer priority;
-	
 	private String name;
-	
 	private String description;
-	
 	private String aceptance_criteria;
-	
 	private Integer story_points;
-	
 	private Integer progress;
-	
-	private Integer start_date;
-	
-	private Integer due_date;
-	
-	private Integer create_date;
-	
+	private LocalDate start_date;
+	private LocalDate due_date;
+	private LocalDate create_date;
 	private Integer status;
-	
-
 }
